@@ -34,6 +34,8 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'figaro'
 gem 'sendgrid-ruby'
+gem "zendesk_api"
+gem "dropbox-api"
 
 # ===============================================================
 # ===============================================================
