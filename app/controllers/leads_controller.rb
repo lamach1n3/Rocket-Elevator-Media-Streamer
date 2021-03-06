@@ -1,5 +1,6 @@
 class LeadsController < ApplicationController
     require 'sendgrid-ruby'
+    include SendGrid
     
     def new
         @lead = Lead.new
