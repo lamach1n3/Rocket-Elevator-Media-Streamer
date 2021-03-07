@@ -3,16 +3,19 @@ class Customer < ApplicationRecord
     has_many :buildings
     has_one :address
 
-    # has_one :lead
+    # # has_one :lead
 
-    after_create :migrate_attachments_to_dropbox
-    after_update :migrate_attachments_to_dropbox  # This line calls the function below after create or update a customer
+    # after_create :migrate_attachments_to_dropbox
+    # after_update :migrate_attachments_to_dropbox  # This line calls the function below after create or update a customer
 
 
 #   # Logic to connect to the dropbox account, create a diretory for the client, export the binary files to dropbox client's directory, delete the binary file from MySQL database 
 #     def migrate_attachments_to_dropbox
 #       puts self.id
 #       dropbox_client = DropboxApi::Client.new
+
+
+#       ENV["DROPBOX_API_KEY"]
       
 #       puts self.cpy_contact_email    
 #       Lead.where(email: self.cpy_contact_email).each do |lead|  # for each lead that has this email       
