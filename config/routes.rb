@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/contact'      => 'contact#index'
   get '/portfolio'    => 'home#portfolio'
   get '/charts'       => 'charts#dashboard'
+  #get '/maps'       => 'maps#dashboard'
   post '/leads'       => 'leads#create'
   post '/quotes'      => 'quotes#create'
   

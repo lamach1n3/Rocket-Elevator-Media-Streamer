@@ -19,7 +19,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # ===============================================================
 
 gem 'devise'
-gem 'rails_admin'
+gem 'c'
 gem 'faker'
 gem 'rubocop', require: false
 gem 'sprockets-rails', :require => 'sprockets/railtie'
@@ -62,3 +62,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'figaro'
+
