@@ -17,7 +17,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # ===============================================================
 #                      we added these gems
 # ===============================================================
-
+gem 'figaro'
 gem 'devise'
 gem 'rails_admin'
 gem 'faker'
