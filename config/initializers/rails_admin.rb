@@ -55,5 +55,7 @@ RailsAdmin.config do |config|
 
   config.navigation_static_links = {
     'Charts' => '/charts'
+    
   }
 end
+
