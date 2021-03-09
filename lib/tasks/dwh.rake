@@ -2,14 +2,6 @@ require 'pg'
 namespace :dbr do
 
   desc "Import data from Quote Table to Fact Quote Table"
-<<<<<<< HEAD
-  task quotes: :environment do
-<<<<<<< HEAD
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "12345")
-=======
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "MaximeAuger_psql", user: "surveytech", password: "2304godZ")
->>>>>>> main
-=======
   desc "Import data from Lead Table to Fact Contacts Table"
   desc "Import data from product"
   desc "Import data from customers"
@@ -19,7 +11,6 @@ namespace :dbr do
 
   task runall: :environment do
     dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "postgres")
->>>>>>> dev
     puts "lead table to fact_quote table"
     
     dwh.exec("TRUNCATE fact_quotes")
@@ -28,20 +19,8 @@ namespace :dbr do
     Quote.all.each do |quotes|
       dwh.exec_prepared('to_fact_quotes', [quotes.id, quotes.created_at, quotes.quotes_company_name, quotes.quotes_email, quotes.elevator_amount])
     end
-<<<<<<< HEAD
-  end
-
-  desc "Import data from Lead Table to Fact Contacts Table"
-  task contacts: :environment do
-<<<<<<< HEAD
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "12345")
-=======
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "MaximeAuger_psql", user: "surveytech", password: "2304godZ")
->>>>>>> main
-=======
   
     dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "postgres")
->>>>>>> dev
     puts "lead table to fact_contact table"
     
     dwh.exec("TRUNCATE fact_contacts")
@@ -50,20 +29,7 @@ namespace :dbr do
     Lead.all.each do |ldcontact|
       dwh.exec_prepared('to_fact_contacts', [ldcontact.id, ldcontact.created_at, ldcontact.company_name, ldcontact.email, ldcontact.project_name])
     end
-<<<<<<< HEAD
-  end
-
-
-  desc "Import data from product"
-  task elevators: :environment do
-<<<<<<< HEAD
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "12345")
-=======
-    dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "MaximeAuger_psql", user: "surveytech", password: "2304godZ")
->>>>>>> main
-=======
   
->>>>>>> dev
 
     dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "MaximeAuger_psql", user: "postgres", password: "postgres")
     dwh.exec("TRUNCATE fact_elevators")
