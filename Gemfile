@@ -19,7 +19,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # ===============================================================
 
 gem 'devise'
-gem 'c'
+gem 'rails_admin'
 gem 'faker'
 gem 'rubocop', require: false
 gem 'sprockets-rails', :require => 'sprockets/railtie'
