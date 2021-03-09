@@ -33,7 +33,7 @@ gem 'rails_admin_import', '~> 2.2'
 gem 'chartkick'
 gem 'groupdate'
 gem 'figaro'
-gem 'slack-ruby-client'
+gem 'slack-notifier'
 gem 'date'
 gem 'sendgrid-ruby'
 
