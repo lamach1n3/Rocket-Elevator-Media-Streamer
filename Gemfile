@@ -34,6 +34,7 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'figaro'
 gem 'sendgrid-ruby'
+gem 'ibm_watson'
 
 # ===============================================================
 # ===============================================================
@@ -63,6 +64,5 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-gem 'figaro'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
