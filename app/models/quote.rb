@@ -1,9 +1,8 @@
 class Quote < ApplicationRecord
-
     after_save :new_zendesk_ticket_quote
 
     def new_zendesk_ticket_quote
-        ZendeskAPI::Ticket.create!($client,
+        ZendeskAPI::Ticket.create!(client,
         :subject => "#{self.quotes_name} from #{self.quotes_company_name}",
         :comment => {
             :value => "The contact #{self.quotes_name} from #{self.quotes_company_name} can be reach at this email: #{self.quotes_email}.

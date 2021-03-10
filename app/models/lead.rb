@@ -1,5 +1,5 @@
 class Lead < ApplicationRecord
-
+    # belongs_to :customer
     after_save :new_zendesk_ticket_lead
 
     def new_zendesk_ticket_lead
