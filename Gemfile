@@ -38,6 +38,9 @@ gem 'date'
 gem 'sendgrid-ruby'
 gem 'zendesk_api'
 
+gem "twilio-ruby"
+# twilio
+
 # ===============================================================
 # ===============================================================
 
@@ -67,3 +70,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'gmaps4rails'
+
