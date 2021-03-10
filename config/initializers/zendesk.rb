@@ -28,8 +28,8 @@ client = ZendeskAPI::Client.new do |config|
   config.raise_error_when_rate_limited = false
 
   # Logger prints to STDERR by default, to e.g. print to stdout:
-  #require 'logger'
-  #config.logger = Logger.new(STDOUT)
+  require 'logger'
+  config.logger = Logger.new(STDOUT)
 
   # Changes Faraday adapter
   # config.adapter = :patron
