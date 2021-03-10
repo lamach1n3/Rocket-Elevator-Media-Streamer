@@ -8,9 +8,8 @@
 <script>
     $('#watson').on("click", ()=> {
         $.ajax("/speak")
-        var myAudio = new Audio('#audio');
-        myAudio.play();
-        // audio.paused? audio.play():audio.pause()
-        // audio.paused? $('#watson').text("play"):$('#watson').text('pause')
+        var audio = $('#audio').get(0);
+        audio.paused? audio.play():audio.pause()
+        audio.paused? $('#watson').text("play"):$('#watson').text('pause')
     })
 </script>

@@ -18,9 +18,9 @@ include IBMWatson
         employee = Employee.find_by(user_id: current_user.id)
         File.open("#{Rails.root}/app/assets/audios/watson.mp3", "wb") do |audio_file|
             response = text_to_speech.synthesize(
-                text: "Hello #{employee.first_name}",
+                text: "Hello #{employee.first_name} #{employee.last_name} There are currently #{Elevator.count} elevators deployed in the #{Building.count} buildings of your #{Customer.count} customers. Currently, #{Elevator.where.not(status: "online").count} elevators are not in Running Status and are being serviced You currently have #{Quote.count} quotes awaiting processing. You currently have #{Lead.count} leads in your contact requests #{Battery.count} Batteries are deployed across #{Address.distinct.count(:city)} cities",
                 accept: "audio/mp3",
-                voice: "en-GB_JamesV3Voice"
+                voice: "en-US_AllisonVoice"
             ).result
 
         audio_file.write(response)
@@ -31,3 +31,5 @@ include IBMWatson
    
 end
 
+
+#{Elevator.where.not(status: "online").count}
