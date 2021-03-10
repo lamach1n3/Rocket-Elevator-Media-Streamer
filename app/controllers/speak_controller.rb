@@ -6,7 +6,7 @@ include IBMWatson
     def speech
         puts('test test!!!!!!!!!!!!!!!!')
         authenticator = Authenticators::IamAuthenticator.new(
-             apikey: 'frf8RKETNbswWhTNbOV6Wc26wWEEZr1oitTd29gIhV6x'
+             apikey: ''
         )
         puts("hello world")
 
