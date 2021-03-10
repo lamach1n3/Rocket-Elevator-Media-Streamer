@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'rails_admin', 'gmap.rb')
+
 RailsAdmin.config do |config|
   ### Popular gems integration
   config.authorize_with do
@@ -47,6 +49,7 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    gmap
 
     ## With an audit adapter, you can add:
     # history_index
