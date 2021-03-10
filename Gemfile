@@ -33,8 +33,17 @@ gem 'rails_admin_import', '~> 2.2'
 gem 'chartkick'
 gem 'groupdate'
 gem 'figaro'
+gem 'slack-notifier'
+gem 'date'
 gem 'sendgrid-ruby'
 gem 'ibm_watson'
+
+gem "zendesk_api"
+gem "dropbox-api"
+
+gem "twilio-ruby"
+# twilio
+
 
 # ===============================================================
 # ===============================================================
@@ -66,3 +75,7 @@ end
 
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'gmaps4rails'
+
+
