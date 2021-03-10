@@ -25,7 +25,7 @@ class Elevator < ApplicationRecord
         puts message.sid 
         
         end 
-
+    end
     before_update :slack_message
 
     def slack_message
