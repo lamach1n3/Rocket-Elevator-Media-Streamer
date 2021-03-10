@@ -26,8 +26,9 @@ class Elevator < ApplicationRecord
         
         end 
 
+        
+    end
     before_update :slack_message
-
     def slack_message
       
         timestamp = DateTime.now.strftime("%d-%m-%Y %H:%M")         #to format timestamp at the end of the message
