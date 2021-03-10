@@ -1,5 +1,6 @@
 class LeadsController < ApplicationController
     require 'sendgrid-ruby'
+    include SendGrid
     
     def new
         @lead = Lead.new
@@ -32,15 +33,8 @@ class LeadsController < ApplicationController
         full_name = @lead.full_name
         project_name = @lead.project_name
         phone = @lead.phone
-        # puts email
-        # puts full_name
-        # puts project_name
-        # puts phone
-
-        mail = SendGrid::Mail.new
-        # puts mail
+        mail = SendGrid::Mail.new    
         mail.from = SendGrid::Email.new(email: "rocketelevatorswk7@gmail.com")
-        # puts mail.from
         personalization = SendGrid::Personalization.new
         personalization.add_to(SendGrid::Email.new(email: email))
         personalization.add_dynamic_template_data({
@@ -48,14 +42,9 @@ class LeadsController < ApplicationController
             "project_name" => project_name,
             "phone" => phone
         })
-        # puts personalization.add_dynamic_template_data
-
-        mail.add_personalization(personalization)
-        # puts mail.add_personalization
+        mail.add_personalization(personalization) 
         mail.template_id = 'd-15d6bef02786488fa205bd75c1fa8f51'
-
         sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-        
         response = sg.client.mail._('send').post(request_body: mail.to_json)
     end
 
