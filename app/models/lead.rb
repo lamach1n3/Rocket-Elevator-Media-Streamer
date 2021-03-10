@@ -24,4 +24,5 @@ class Lead < ApplicationRecord
         :type => "question"
         )
     end
+
 end
