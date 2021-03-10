@@ -18,7 +18,7 @@ class Elevator < ApplicationRecord
     
         puts 
         end 
-
+    end
     before_update :slack_message
 
     def slack_message
