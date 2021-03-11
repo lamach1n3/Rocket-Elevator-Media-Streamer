@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   #get '/maps'       => 'maps#dashboard'
   post '/leads'       => 'leads#create'
   post '/quotes'      => 'quotes#create'
-  
+
+  get 'buildinglocalisation' => 'buildinglocalisation#building'
 
    
   devise_scope :user do 
