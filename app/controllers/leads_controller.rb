@@ -54,19 +54,11 @@ class LeadsController < ApplicationController
     
     # Logic to connect to the dropbox account, create a diretory for the client, export the binary files to dropbox client's directory, delete the binary file from MySQL database 
     def dropbox
-      puts ENV["DROPBOX_APIKEY"]
-      puts "========================dropbox========================="
-      puts @lead.id
-      puts @lead.email
-      puts @lead.file_attachment
-      puts "========================dropbox========================="
-      puts "========================dropbox========================="
+     
 
      client = DropboxApi::Client.new(ENV["DROPBOX_APIKEY"])
-
-   
        # for each lead that has this email  
-      Lead.where(email: @lead.email).each do |lead|  
+      Lead.where(email: @lead.email && file_attachment: !nil ).each do |lead|  
         
          # check if the attached_file is NOT null
         unless lead.file_attachment.nil? 
@@ -83,8 +75,8 @@ class LeadsController < ApplicationController
             puts "File already exists in folder, ignoring file upload. Continue to delete file from database."
            end  
 
-          # @lead.file_attachment = nil;
-          # @lead.save!
+          @lead.file_attachment = nil;
+          @lead.save!
         end
       end
     end 
