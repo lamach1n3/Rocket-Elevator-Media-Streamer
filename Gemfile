@@ -40,9 +40,12 @@ gem 'ibm_watson'
 
 gem "zendesk_api"
 gem "dropbox-api"
+gem 'gmaps4rails'
 
 gem "twilio-ruby"
 # twilio
+
+
 
 
 # ===============================================================
@@ -76,7 +79,7 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'gmaps4rails'
 gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+
 
 

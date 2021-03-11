@@ -1,7 +1,9 @@
 class LeadsController < ApplicationController
+
     require 'zendesk_api'
     require 'sendgrid-ruby'
     include SendGrid
+
     
     def new
         @lead = Lead.new
