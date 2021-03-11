@@ -7,14 +7,14 @@ class QuotesController < ApplicationController
         @quote = Quote.new(quote_params)
 
         if @quote.final_price != '0.00 $' && @quote.final_price != '-$NaN' && @quote.save
-            fact_quotes()
+            # fact_quotes()
             redirect_to main_app.root_path, notice: "Quote sent!"
         else    
             redirect_to "/quotes", notice: "Invalid fields!"
         end
     end
 
-    private
+    # private
     # def fact_quotes
     # dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "MaximeAuger_psql", user: "codeboxx", password: "Codeboxx1!")
     #   dwh.exec("TRUNCATE fact_quotes")

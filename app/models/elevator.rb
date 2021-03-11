@@ -5,7 +5,7 @@ class Elevator < ApplicationRecord
 
     before_save :twilio_sms
 
-    #def twilio_sms
+    def twilio_sms
 
         if self.status == "intervention" or self.status == "Intervention" 
             account_sid = ENV["TWILIO_ACCOUNT_SID"]
