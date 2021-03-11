@@ -36,6 +36,16 @@ gem 'figaro'
 gem 'slack-notifier'
 gem 'date'
 gem 'sendgrid-ruby'
+gem 'ibm_watson'
+
+gem "zendesk_api"
+gem "dropbox-api"
+
+gem "twilio-ruby"
+# twilio
+
+
+
 
 # ===============================================================
 # ===============================================================
@@ -65,6 +75,11 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 gem 'gmaps4rails'
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+
+
 
