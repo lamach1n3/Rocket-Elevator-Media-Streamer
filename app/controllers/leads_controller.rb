@@ -1,6 +1,6 @@
 class LeadsController < ApplicationController
 
-    require 'zendesk_api'
+    # require 'zendesk_api'
     require 'sendgrid-ruby'
     include SendGrid
 
