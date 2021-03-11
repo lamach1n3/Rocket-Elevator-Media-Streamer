@@ -28,11 +28,10 @@ Rails.application.routes.draw do
   post '/leads'       => 'leads#create'
   post '/quotes'      => 'quotes#create'
 
+  get 'buildinglocalisation' => 'buildinglocalisation#building'
   get '/speak'       => 'speak#speech'
   # get '/speak', to: 'speak#text_to_speech', as: 'button'
   
-
-   
   devise_scope :user do 
     get "/signup"     => "devise/registrations#new" 
     get "/signin"     => "devise/sessions#new" 
