@@ -26,7 +26,6 @@ class Elevator < ApplicationRecord
         
         end 
 
-        
     end
     before_update :slack_message
     def slack_message
