@@ -5,7 +5,7 @@ before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
 set :application, "ClaudeStLaurent"
 set :repo_url, "https://github.com/Week-7-Team-4/Rocket_Elevators_API.git"
-
+set :linked_files, %w{config/application.yml}
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -23,7 +23,7 @@ set :repo_url, "https://github.com/Week-7-Team-4/Rocket_Elevators_API.git"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml"
+# append :linked_files, "config/database.yml"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
