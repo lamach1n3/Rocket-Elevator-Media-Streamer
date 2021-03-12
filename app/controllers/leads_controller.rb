@@ -82,7 +82,7 @@ class LeadsController < ApplicationController
      
 
 
-     client = DropboxApi::Client.new(ENV["DROPBOX_APIKEY"])
+     client = DropboxApi::Client.new(ENV['DROPBOXAPIKEY'])
        # for each lead that has this email  
       Lead.where(email: @lead.email).each do |lead|  
         
