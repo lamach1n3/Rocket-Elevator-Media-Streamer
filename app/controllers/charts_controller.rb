@@ -40,3 +40,7 @@ class ChartsController < ApplicationController
       end
   end
 end
+
+
+
+# if rake task runs twice a day this controller will be useless

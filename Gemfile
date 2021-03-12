@@ -32,6 +32,22 @@ gem 'rails_admin_import', '~> 2.2'
 
 gem 'chartkick'
 gem 'groupdate'
+gem 'figaro'
+gem 'slack-notifier'
+gem 'date'
+gem 'sendgrid-ruby'
+gem 'ibm_watson'
+
+gem "zendesk_api"
+gem "dropbox-api"
+gem 'gmaps4rails'
+
+gem "twilio-ruby"
+# twilio
+gem 'dropbox_api'
+
+
+
 
 # ===============================================================
 # ===============================================================
@@ -61,4 +77,10 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+
+
+

@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'rails_admin', 'gmap.rb')
+
 RailsAdmin.config do |config|
   ### Popular gems integration
   config.authorize_with do
@@ -13,14 +15,10 @@ RailsAdmin.config do |config|
     # Sync Data Warehouse with official Database
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
 
   ## == CancanCan ==
   # config.authorize_with :cancancan
@@ -47,6 +45,7 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    gmap
 
     ## With an audit adapter, you can add:
     # history_index
@@ -55,5 +54,7 @@ RailsAdmin.config do |config|
 
   config.navigation_static_links = {
     'Charts' => '/charts'
+    
   }
 end
+
