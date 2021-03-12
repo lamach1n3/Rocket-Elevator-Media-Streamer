@@ -1,6 +1,4 @@
 require_relative 'boot'
-
-
 require 'rails/all'
 require "sprockets/railtie"
 # Require the gems listed in Gemfile, including any gems
@@ -9,6 +7,8 @@ Bundler.require(*Rails.groups)
 
 module RocketElevatorsInformationSystem
   class Application < Rails::Application
+    skip_before_action :verify_authenticity_token
+    protect_from_forgery prepend: true, with: :exception
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
