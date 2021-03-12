@@ -34,9 +34,9 @@ class LeadsController < ApplicationController
             redirect_to "/leads", notice: "Invalid fields!"
         end
         client = ZendeskAPI::Client.new do |config|
-            config.url = ENV['ZENDESK_URL']
-            config.username = ENV['ZENDESK_EMAIL']
-            config.token = ENV['ZENDESK_TOKEN']
+            config.url = ENV["ZENDESK_URL"]
+            config.username = ENV["ZENDESK_EMAIL"]
+            config.token = ENV["ZENDESK_TOKEN"]
         end
 
         ZendeskAPI::Ticket.create!(client,
@@ -84,7 +84,7 @@ class LeadsController < ApplicationController
 
      client = DropboxApi::Client.new(ENV["DROPBOX_APIKEY"])
        # for each lead that has this email  
-      Lead.where(email: @lead.email && file_attachment: !nil).each do |lead|  
+      Lead.where(email: @lead.email).each do |lead|  
         
          # check if the attached_file is NOT null
         unless lead.file_attachment.nil? 
