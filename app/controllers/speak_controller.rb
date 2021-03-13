@@ -6,7 +6,7 @@ class SpeakController < ApplicationController
         def speech
     
             authenticator = Authenticators::IamAuthenticator.new(
-                 apikey: ENV["IBM_apikey"]
+                 apikey: ENV["IBMapikey"]
             )
     
             text_to_speech = TextToSpeechV1.new(
