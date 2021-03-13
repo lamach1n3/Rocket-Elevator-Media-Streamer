@@ -1,12 +1,13 @@
 %div
 
-    hello 
+
     %audio#watsonAudio.audios{controls: "", preload: "none"}
     %source{src:"/assets/watson.mp3", type: "audio/mp3"}
 
 
 :javascript    
     $(document).ready(function(){
+            console.log("Yo bad mother fucker!!")
             let xmlHttpRequest = new XMLHttpRequest(); 
             xmlHttpRequest.open("GET", "/speak"+ "?cb=" + new Date().getTime(), true);
             xmlHttpRequest.responseType = "blob"; 
