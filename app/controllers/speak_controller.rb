@@ -21,7 +21,7 @@ class SpeakController < ApplicationController
                     accept: "audio/mp3",
                     voice: "en-US_AllisonVoice"
                 ).result
-    
+            puts("audio not made")
             audio_file << response
             puts("audio made")
             end
