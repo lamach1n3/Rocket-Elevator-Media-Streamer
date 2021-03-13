@@ -24,7 +24,7 @@ def init()
   employee_create("Admin", "Admin", "Admin", "roc-kets", "admin@admin.com")
 
 
-  50.times do 
+  5.times do 
     customer_create(
       Faker::Company.name,
       Faker::Name.name,
@@ -38,7 +38,7 @@ def init()
   end
 
 
-    50.times do
+    5.times do
       pl = ["Standard", "Premium", "Excelium"]
       bt = ["Residential", "Commercial", "Corporate", "Hybrid"]
   Quote.create(
@@ -132,6 +132,7 @@ def building_create(adm_contact_full_name, adm_contact_email, adm_contact_phone,
     tech_contact_full_name: tech_contact_full_name, 
     tech_contact_email: tech_contact_email, 
     tech_contact_phone: tech_contact_phone, 
+    employee: employee,
     customer: customer,
     address: @address})
   @building.save!
