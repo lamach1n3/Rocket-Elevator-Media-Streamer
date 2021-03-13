@@ -8,7 +8,7 @@ class SpeakController < ApplicationController
             authenticator = Authenticators::IamAuthenticator.new(
                  apikey: ENV["IBMapikey"]
             )
-    
+            puts(ENV["IBMapikey"])
             text_to_speech = TextToSpeechV1.new(
                 authenticator: authenticator
             )
