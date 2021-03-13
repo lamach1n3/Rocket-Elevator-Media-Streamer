@@ -9,6 +9,7 @@ class SpeakController < ApplicationController
                  apikey: ENV["IBMapikey"]
             )
             puts(ENV["IBMapikey"])
+            puts("no apikey")
             text_to_speech = TextToSpeechV1.new(
                 authenticator: authenticator
             )
