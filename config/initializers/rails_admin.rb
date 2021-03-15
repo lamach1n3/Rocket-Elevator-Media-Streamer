@@ -18,10 +18,6 @@ RailsAdmin.config do |config|
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
   # end
-  # == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
   # config.current_user_method(&:current_user)
 
   ## == CancanCan ==
@@ -62,3 +58,13 @@ RailsAdmin.config do |config|
   }
 end
 
+require 'rails_admin/main_controller'
+
+module RailsAdmin
+
+  class MainController < RailsAdmin::ApplicationController
+    protect_from_forgery prepend: true, with: :exception  
+    skip_before_action :verify_authenticity_token
+  end
+
+end
