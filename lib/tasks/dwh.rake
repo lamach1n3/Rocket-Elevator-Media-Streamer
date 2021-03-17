@@ -82,18 +82,19 @@ end
 
 namespace :seed do
   task leads: :environment do
+    custom = 1
     50.times do
       randomizeCustomer = rand(0..9)
       isCustomer = false
-    
-      if randomizeCustomer <= 3
+      if randomizeCustomer <= 5
         isCustomer = false
       else
         isCustomer = true
       end
       customers_id = nil
       if isCustomer
-        customers_id = rand(1..50)
+        customers_id = custom
+        custom += 1
       end
       
       lead = Lead.create(
@@ -108,6 +109,10 @@ namespace :seed do
           created_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today - 1000, period: :all),
           customer_id: customers_id
       )
+      puts lead.inspect
+      lead.save!
+  
+      costumers_id = nil
     end
   end
 end

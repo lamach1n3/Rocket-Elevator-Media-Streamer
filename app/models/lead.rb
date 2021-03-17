@@ -1,4 +1,4 @@
 class Lead < ApplicationRecord
-    belongs_to :customer
+    # belongs_to :customer
 
 end
