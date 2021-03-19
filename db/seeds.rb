@@ -270,7 +270,7 @@ def elevator_create(serial_number, model, type_building, status, date_commission
     column: column})
   @elevator.save!
 end
-50.times do
+# 50.times do
 #   randomizeCustomer = rand(0..9)
 #   isCustomer = false
 
@@ -284,17 +284,17 @@ end
 #     customers_id = rand(1..50)
 #   end
   
-  lead = Lead.create(
-      full_name: Faker::Name.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      company_name: Faker::Company.unique.name,
-      project_name: Faker::Appliance.brand,
-      department: Faker::Company.industry,
-      project_description: Faker::Lorem.sentences(number: 1, supplemental: true),
-      message: Faker::Lorem.paragraphs(number: 1), 
-      created_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today - 1000, period: :all),
-      # customer_id: customers_id
-  )
-end
+#   lead = Lead.create(
+#       full_name: Faker::Name.name,
+#       email: Faker::Internet.email,
+#       phone: Faker::PhoneNumber.phone_number,
+#       company_name: Faker::Company.unique.name,
+#       project_name: Faker::Appliance.brand,
+#       department: Faker::Company.industry,
+#       project_description: Faker::Lorem.sentences(number: 1, supplemental: true),
+#       message: Faker::Lorem.paragraphs(number: 1), 
+#       created_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today - 1000, period: :all),
+#       # customer_id: customers_id
+#   )
+# end
 init()

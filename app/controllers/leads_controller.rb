@@ -1,10 +1,10 @@
 class LeadsController < ApplicationController
 
     # require 'zendesk_api'
-    require 'sendgrid-ruby'
-    include SendGrid
+    # require 'sendgrid-ruby'
+    # include SendGrid
 
-    require 'dropbox-api'
+    # require 'dropbox-api'
     
 
 
@@ -56,55 +56,55 @@ class LeadsController < ApplicationController
         # )
     end
 
-    def sendMail
-        puts("sendmail")
-        email = @lead.email
-        full_name = @lead.full_name
-        project_name = @lead.project_name
-        phone = @lead.phone
-        mail = SendGrid::Mail.new    
-        mail.from = SendGrid::Email.new(email: "rocketelevatorswk7@gmail.com")
-        personalization = SendGrid::Personalization.new
-        personalization.add_to(SendGrid::Email.new(email: email))
-        personalization.add_dynamic_template_data({
-            "full_name" => full_name,
-            "project_name" => project_name,
-            "phone" => phone
-        })
-        mail.add_personalization(personalization) 
-        mail.template_id = 'd-15d6bef02786488fa205bd75c1fa8f51'
-        sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-        response = sg.client.mail._('send').post(request_body: mail.to_json)
-    end
+    # def sendMail
+    #     puts("sendmail")
+    #     email = @lead.email
+    #     full_name = @lead.full_name
+    #     project_name = @lead.project_name
+    #     phone = @lead.phone
+    #     mail = SendGrid::Mail.new    
+    #     mail.from = SendGrid::Email.new(email: "rocketelevatorswk7@gmail.com")
+    #     personalization = SendGrid::Personalization.new
+    #     personalization.add_to(SendGrid::Email.new(email: email))
+    #     personalization.add_dynamic_template_data({
+    #         "full_name" => full_name,
+    #         "project_name" => project_name,
+    #         "phone" => phone
+    #     })
+    #     mail.add_personalization(personalization) 
+    #     mail.template_id = 'd-15d6bef02786488fa205bd75c1fa8f51'
+    #     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+    #     response = sg.client.mail._('send').post(request_body: mail.to_json)
+    # end
     
     # Logic to connect to the dropbox account, create a diretory for the client, export the binary files to dropbox client's directory, delete the binary file from MySQL database 
-    def dropbox
+    # def dropbox
      
 
 
-     client = DropboxApi::Client.new(ENV['DROPBOXAPIKEY'])
-       # for each lead that has this email  
-      Lead.where(email: @lead.email).each do |lead|  
+    #  client = DropboxApi::Client.new(ENV['DROPBOXAPIKEY'])
+    #    # for each lead that has this email  
+    #   Lead.where(email: @lead.email).each do |lead|  
         
-         # check if the attached_file is NOT null
-        unless lead.file_attachment.nil? 
-          dir_path = "/" + @lead.company_name   
-          begin           
-            # create a folder named (use the company_name) if there is no folder for this customer yet
-            client.create_folder dir_path  
-          rescue DropboxApi::Errors::FolderConflictError => err
-            puts "Folder already exists in path, ignoring folder creation. Continue to upload files."
-          end  
-          begin
-            client.upload(dir_path + "/" + lead.filename, lead.file_attachment)     # send file to user's folder at dropbox
-          rescue DropboxApi::Errors::FileConflictError => err
-            puts "File already exists in folder, ignoring file upload. Continue to delete file from database."
-           end  
+    #      # check if the attached_file is NOT null
+    #     unless lead.file_attachment.nil? 
+    #       dir_path = "/" + @lead.company_name   
+    #       begin           
+    #         # create a folder named (use the company_name) if there is no folder for this customer yet
+    #         client.create_folder dir_path  
+    #       rescue DropboxApi::Errors::FolderConflictError => err
+    #         puts "Folder already exists in path, ignoring folder creation. Continue to upload files."
+    #       end  
+    #       begin
+    #         client.upload(dir_path + "/" + lead.filename, lead.file_attachment)     # send file to user's folder at dropbox
+    #       rescue DropboxApi::Errors::FileConflictError => err
+    #         puts "File already exists in folder, ignoring file upload. Continue to delete file from database."
+    #        end  
 
-          @lead.file_attachment = nil;
-          @lead.save!
-        end
-      end
+    #       @lead.file_attachment = nil;
+    #       @lead.save!
+    #     end
+    #   end
     end 
     # private
     #   # def fact_contacts
