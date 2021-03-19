@@ -105,7 +105,7 @@ class LeadsController < ApplicationController
     #       @lead.save!
     #     end
     #   end
-    end 
+    # end 
     # private
     #   # def fact_contacts
     #   #   dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "MaximeAuger_psql", user: "codeboxx", password: "Codeboxx1!")
