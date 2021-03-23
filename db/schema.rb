@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_17_141425) do
+ActiveRecord::Schema.define(version: 2021_03_23_174429) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "type_address"
@@ -98,7 +98,9 @@ ActiveRecord::Schema.define(version: 2021_03_17_141425) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "address_id"
+    t.bigint "lead_id"
     t.index ["address_id"], name: "index_customers_on_address_id"
+    t.index ["lead_id"], name: "index_customers_on_lead_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
@@ -131,16 +133,18 @@ ActiveRecord::Schema.define(version: 2021_03_17_141425) do
   end
 
   create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "employee_id"
-    t.integer "building_id"
+    t.integer "author", null: false
+    t.integer "customer_id", null: false
+    t.integer "building_id", null: false
     t.integer "battery_id"
     t.integer "column_id"
     t.integer "elevator_id"
-    t.string "start_interv"
-    t.string "stop_interv"
-    t.string "result"
-    t.string "reports"
-    t.string "status"
+    t.integer "employee_id"
+    t.datetime "start_intervention"
+    t.datetime "end_intervention"
+    t.string "result", default: "Incomplete"
+    t.text "report"
+    t.string "status", default: "Pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -209,6 +213,7 @@ ActiveRecord::Schema.define(version: 2021_03_17_141425) do
   add_foreign_key "buildings", "customers"
   add_foreign_key "columns", "batteries"
   add_foreign_key "customers", "addresses"
+  add_foreign_key "customers", "leads"
   add_foreign_key "customers", "users"
   add_foreign_key "elevators", "columns"
   add_foreign_key "employees", "users"
