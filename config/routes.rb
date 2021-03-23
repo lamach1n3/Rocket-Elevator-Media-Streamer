@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get 'quotes/quotes'
   get 'pages/charts'
   get 'pages/diagram'
+  get 'intervention/index'
+
+
+  get 'intervention', to: 'intervention#index'
   devise_for :users
   
   root to: "home#index"
@@ -29,8 +33,9 @@ Rails.application.routes.draw do
   post '/quotes'      => 'quotes#create'
 
   get 'buildinglocalisation' => 'buildinglocalisation#building'
-  get '/speak'       => 'speak#speech'
+  get '/speak'        => 'speak#speech'
   # get '/speak', to: 'speak#text_to_speech', as: 'button'
+  get 'intervention'  => 'intervention#index'
   
   devise_scope :user do 
     get "/signup"     => "devise/registrations#new" 
@@ -43,6 +48,18 @@ Rails.application.routes.draw do
     post "/signout"    => "devise/sessions#destroy"
     post "/changepassword" => "devise/passwords#new"
   end
+  # devise_for :users,
+  #   :controllers => { registrations: 'registrations'},
+  #   :path_prefix => '',
+  #   path: 'u',
+  #   path_names: {
+  #   sign_in: 'sign_in',
+  #   sign_out: 'sign_out',
+  #   password: 's',
+  #   confirmation: 'v'
+  # }
+
+  # get 
 
   Rails.application.routes.draw do
     resources :quotes, only: [:new, :create]
