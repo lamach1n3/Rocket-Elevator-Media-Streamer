@@ -70,6 +70,11 @@
 										<% if current_user%>
 											<% if current_user.admin%>
 											<a href=<%= "admin" %>>ADMIN</a>
+												<ul class="dropdown-menu">
+													<li class="dropdown-item"><a href=<%= "admin" %>>ADMIN</a></li>
+													<li class="dropdown-item"><a href="/commercial">Commercial Buildings</a></li>
+													<li class="dropdown-item"><a href="/quotes">Get A Quote</a></li>
+												</ul>
 											<% end %>
 										<% end %>
 								

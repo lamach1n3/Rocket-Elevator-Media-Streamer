@@ -21,7 +21,7 @@ RailsAdmin.config do |config|
   # config.current_user_method(&:current_user)
 
   ## == CancanCan ==
-  # config.authorize_with :cancancan
+  config.authorize_with :cancancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -51,6 +51,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+ 
 
   config.navigation_static_links = {
     'Charts' => '/charts'
