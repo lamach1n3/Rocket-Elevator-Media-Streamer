@@ -28,11 +28,13 @@ default: &default
 
 development:
   <<: *default
-  database: ma
+  database: jft_mysql
+
++++++++++++++++
 
   save and quit
   and exit with exit
-  +++++++++++++++
+
   
   cap production puma:config
   cap production puma:nginx_config

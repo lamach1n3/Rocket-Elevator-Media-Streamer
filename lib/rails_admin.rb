@@ -31,7 +31,7 @@ module RailsAdmin
                         #     authenticator: authenticator
                         # )
 
-                        # text_to_speech.service_url = "https://api.us-east.text-to-speech.watson.cloud.ibm.com/instances/a9e170cf-7c55-4a4a-a204-b84b2d29a2fe"
+                        # text_to_speech.service_url = "https://api.us-east.text-to-speech.watson.cloud.ibm.com/instances/73971b94-3984-43a8-bc26-99bcb32ddd57"
                         # employee = Employee.find_by(user_id: current_user.id)
                         # File.open("public/watson.wav", "wb") do |audio_file|
                         #     response = text_to_speech.synthesize(

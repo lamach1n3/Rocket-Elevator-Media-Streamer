@@ -32,7 +32,7 @@ class InterventionsController < ApplicationController
       employee = current_user.employee.full_name
   
       # Give the id of the employee connected
-      @intervention.author_id = current_user.employee.id
+      @intervention.author = current_user.employee.id
   
       # Data get for zendesk ticket
       battery_id = @intervention.battery_id
@@ -101,11 +101,11 @@ class InterventionsController < ApplicationController
           :column_id,
           :elevator_id,
           :employee_id,
-          :start_date_intervention,
-          :end_date_intervention,
+          :start_intervention,
+          :end_intervention,
           :result,
           :report,
           :status,
-          :author_id)
+          :author)
     end
 end

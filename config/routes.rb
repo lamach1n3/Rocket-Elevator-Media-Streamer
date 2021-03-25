@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get 'buildinglocalisation' => 'buildinglocalisation#building'
   get '/speak'           => 'speak#speech'
   # get '/speak', to: 'speak#text_to_speech', as: 'button'
+  get 'my_interventions' => 'intervention#my_intervention'
   get 'intervention'     => 'intervention#index'
   
   devise_scope :user do 
@@ -61,6 +62,13 @@ Rails.application.routes.draw do
   # }
 
   # get 
+  # collection routes 
+  resources :intervention do
+    get :get_building, on: :collection
+    get :get_battery, on: :collection
+    get :get_column, on: :collection
+    get :get_elevator, on: :collection
+  end 
 
   Rails.application.routes.draw do
     resources :quotes, only: [:new, :create]
