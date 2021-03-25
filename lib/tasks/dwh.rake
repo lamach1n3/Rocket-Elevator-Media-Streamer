@@ -11,7 +11,7 @@ namespace :dbr do
   # ======================================================================
 
   task runall: :environment do
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "jft", user: "codeboxx", password: "Codeboxx1!")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "jft_psql", user: "codeboxx", password: "Codeboxx1!")
     # dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "jft_psql", user: "postgres", password: "postgres")
     puts "lead table to fact_quote table"
     
@@ -22,7 +22,7 @@ namespace :dbr do
       dwh.exec_prepared('to_fact_quotes', [quotes.id, quotes.created_at, quotes.quotes_company_name, quotes.quotes_email, quotes.elevator_amount])
     end
   
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "jft", user: "codeboxx", password: "Codeboxx1!")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "jft_psql", user: "codeboxx", password: "Codeboxx1!")
     # dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "jft_psql", user: "postgres", password: "postgres")
     puts "lead table to fact_contact table"
     
@@ -33,9 +33,9 @@ namespace :dbr do
       dwh.exec_prepared('to_fact_contacts', [ldcontact.id, ldcontact.created_at, ldcontact.company_name, ldcontact.email, ldcontact.project_name])
     end
   
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "csl", user: "codeboxx", password: "Codeboxx1!")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "jft_psql", user: "codeboxx", password: "Codeboxx1!")
     # dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "jft_psql", user: "postgres", password: "postgres")
-    dwh.exec("TRUNCATE fact_elevators")postgres
+    dwh.exec("TRUNCATE fact_elevators")
     dwh.prepare('to_fact_elevators', 'INSERT INTO fact_elevators (serial_number, date_commissioning, building_id, customer_id, building_city, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
     Customer.all.each do |customer|    
       customer.buildings.each do |building|
@@ -50,8 +50,8 @@ namespace :dbr do
       end
     end
   
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "csl", user: "codeboxx", password: "Codeboxx1!")
-    # dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "jft_psql", user: "postgres", password: "postgres")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "jft_psql", user: "codeboxx", password: "Codeboxx1!")
+    # dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "jft_psql_psql", user: "postgres", password: "postgres")
     dwh.exec("TRUNCATE dim_customers")
     dwh.prepare('to_dim_customers', 'INSERT INTO dim_customers (creation_date, company_name, fn_cpy_main_ct, email_cpy_main_ct, nb_elevators, customer_city, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
     Customer.all.each do |customer|          
@@ -73,8 +73,8 @@ namespace :dbr do
 
   desc "Import data intervention table to fact_intervention table"
   task factinterv: :environment do
-    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "csl", user: "codeboxx", password: "Codeboxx1!")
-    # dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "jft_psql", user: "postgres", password: "postgres")
+    dwh = PG::Connection.new(host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com', port: 5432, dbname: "jft_psql", user: "codeboxx", password: "Codeboxx1!")
+    # dwh = PG::Connection.new(host: 'localhost', port: 5432, dbname: "jft_psql_psql", user: "postgres", password: "postgres")
     puts "intervention table to fact_intervention table"
     dwh.exec("TRUNCATE fact_interventions")
     dwh.prepare('to_fact_interventions', 'INSERT INTO fact_interventions (employee_id, building_id, battery_id, column_id, elevator_id, start_interv, stop_interv, result, reports, status, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)')
@@ -84,42 +84,42 @@ namespace :dbr do
   end
 end 
 
-namespace :seed do
-  task leads: :environment do
-    custom = 1
-    50.times do
-      randomizeCustomer = rand(0..9)
-      isCustomer = false
-      if randomizeCustomer <= 5
-        isCustomer = false
-      else
-        isCustomer = true
-      end
-      customers_id = nil
-      if isCustomer
-        customers_id = custom
-        custom += 1
-      end
+# namespace :seed do
+#   task leads: :environment do
+#     custom = 1
+#     50.times do
+#       randomizeCustomer = rand(0..9)
+#       isCustomer = false
+#       if randomizeCustomer <= 5
+#         isCustomer = false
+#       else
+#         isCustomer = true
+#       end
+#       customers_id = nil
+#       if isCustomer
+#         customers_id = custom
+#         custom += 1
+#       end
       
-      lead = Lead.create(
-          full_name: Faker::Name.name,
-          email: Faker::Internet.email,
-          phone: Faker::PhoneNumber.phone_number,
-          company_name: Faker::Company.unique.name,
-          project_name: Faker::Appliance.brand,
-          department: Faker::Company.industry,
-          project_description: Faker::Lorem.sentences(number: 1, supplemental: true),
-          message: Faker::Lorem.paragraphs(number: 1), 
-          created_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today - 1000, period: :all),
-          customer_id: customers_id
-      )
-      puts lead.inspect
-      lead.save!
+#       lead = Lead.create(
+#           full_name: Faker::Name.name,
+#           email: Faker::Internet.email,
+#           phone: Faker::PhoneNumber.phone_number,
+#           company_name: Faker::Company.unique.name,
+#           project_name: Faker::Appliance.brand,
+#           department: Faker::Company.industry,
+#           project_description: Faker::Lorem.sentences(number: 1, supplemental: true),
+#           message: Faker::Lorem.paragraphs(number: 1), 
+#           created_at: Faker::Time.between_dates(from: Date.today - 1, to: Date.today - 1000, period: :all),
+#           customer_id: customers_id
+#       )
+#       puts lead.inspect
+#       lead.save!
   
-      costumers_id = nil
-    end
-  end
-end
+#       costumers_id = nil
+#     end
+#   end
+# end
 
 
 
