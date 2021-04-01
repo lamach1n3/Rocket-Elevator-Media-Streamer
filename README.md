@@ -1,8 +1,123 @@
+
+![](app/assets/images/readme/logo3.jpg
+)
+## Week-10, Project Description
+### The  Repo : [Rocket-Elevator-Media-Streamer](https://github.com/lamach1n3/Rocket-Elevator-Media-Streamer.git)
+
+The marketing department at Rocket Elevators has long been waiting for the opportunity to do media content placement in the company's elevators. To meet their needs, we implement a content delivery module.
+The APIs keys will be provided by a private message, for this weeks excercise to work.
+
+
+This module:
+
+- Reusable library. (in the 'lib' directory of your information system.)
+- Entirely developed with the "red-green-refactor" method
+- The TDD is made by using RSpec ( http://rspec.info )
+![](app/assets/images/readme/tdd.png
+)
+- All the content available and accessible via the getContent method.
+
+Media sources:
+
+- Open Weather API: https://openweathermap.org/api
+- Covid-19 Canada API : https://api.covid19tracker.ca/summary
+- Currency Exchange API: https://rapidapi.com/fyhao/api/Currency%20Exchange
+
+**Here is the information you must enter in the sign in page to access the BackOffice :**
+
+- user : `admin@admin.com`
+- password : `123456`
+<hr>
+
+
+<hr>
+
+## Module PATH :
+
+The Module is located in the lib folder
+
+```sh
+.
+└── lib
+    └── elevator_media
+        └── streamer.rb
+```
+
+## spec folder
+
+```sh
+.
+└── spec
+    ├── controllers
+    │   ├── customers_controller_spec.rb
+    │   ├── interventions_controller_spec.rb
+    │   ├── quotes_controller_spec.rb
+    │   ├── users_controller_spec.rb
+    │   └── routing_spec.rb
+    ├── lib
+    │   └── elevator_media
+    │       └── streamer_spec
+    ├── rais_helper.rb
+    └── spec_helper.rb
+    └── tdd_specs_trials.rb (notes)
+```
+
+# For Testing
+
+### To run all tests :
+
+```sh
+rspec --format documentation
+```
+### Or to run individual tests :
+- Test : ./spec/lib/elevator_media/streamer_spec.rb
+
+```sh
+rspec ./spec/lib/elevator_media/streamer_spec.rb
+```
+
+- Test : ./spec/controllers/customers_controller_spec.rb
+
+```sh
+rspec ./spec/controllers/customers_controller_spec.rb
+```
+
+- Test : ./spec/controllers/users_controller_spec.rb
+
+```sh
+rspec ./spec/controllers/users_controller_spec.rb
+```
+
+- Test : ./spec/controllers/interventions_controller_spec.rb
+
+```sh
+rspec ./spec/controllers/interventions_controller_spec.rb
+```
+
+- Test : ./spec/controllers/quotes_controller_spec.rb
+
+```sh
+rspec ./spec/controllers/quotes_controller_spec.rb
+```
+
+- Test : ./spec/controllers/routings_spec.rb
+
+```sh
+rspec ./spec/controllers/routings_spec.rb
+```
+
+Jean-Francois Taillefer
+
+
+
+
+
+# Week 9: project
 ### The Repo : [Rocket_Elevators_API](https://github.com/lamach1n3/Rocket-Elevator-Foundation.git) 
 
 ### The second Repo : [RestApiwk9](https://github.com/lamach1n3/RestApiwk9.git)
 
-# Week 9: project
+
 
 ## API Google Maps
 
