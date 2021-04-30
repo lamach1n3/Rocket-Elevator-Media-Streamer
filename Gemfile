@@ -45,7 +45,7 @@ gem 'gmaps4rails'
 gem "twilio-ruby"
 # twilio
 gem 'dropbox_api'
-
+gem 'newrelic_rpm'
 
 
 
